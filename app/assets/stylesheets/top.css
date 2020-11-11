@@ -1,0 +1,11 @@
+h1 {
+  position: relative;
+  padding: 0 65px;
+  text-align: center;
+}
+
+
+.right-area {
+  text-align: right;
+  font-size: 110%;
+}

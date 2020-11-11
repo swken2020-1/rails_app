@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required
+  
   def new
     @user = User.new
   end
@@ -7,8 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      redirect_to new_user_path
+      redirect_to login_url, notice: "登録完了　ログインしてください"
+      logger.debug @user.errors.inspect
     else
+      logger.debug @user.errors.inspect
       render :new
     end
   end

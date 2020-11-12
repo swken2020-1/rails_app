@@ -16,6 +16,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    if session[:user_id]==nil
+      redirect_to login_url, notice: "ログインしてください"
+    else
+      @user = User.find_by(id: session[:user_id])
+    end
   end
   
   private

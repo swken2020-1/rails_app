@@ -5,7 +5,7 @@
   <%= f.text_field :name, id: 'session_name' %><br>
   <%= f.label :password, 'パスワード' %>
   <%= f.password_field :password, id: 'session_password' %><br>
-  <%= f.submit 'ログインする' %>
+  <%= f.submit 'ログインする', class: "login-sub" %>
 <% end %>
 
 <%= link_to "トップに戻る", root_url %>

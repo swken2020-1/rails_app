@@ -10,9 +10,7 @@ class UsersController < ApplicationController
     
     if @user.save
       redirect_to login_url, notice: "登録完了　ログインしてください"
-      logger.debug @user.errors.inspect
     else
-      logger.debug @user.errors.inspect
       render :new
     end
   end

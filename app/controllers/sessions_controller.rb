@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     
     if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to users_show_path, notice: "ログインしました"
+      redirect_to recruitments_path, notice: "ログインしました"
     else
       render :new
     end

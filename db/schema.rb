@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_182323) do
+ActiveRecord::Schema.define(version: 2020_11_12_130801) do
+
+  create_table "recruitments", force: :cascade do |t|
+    t.string "mode", null: false
+    t.string "rank", null: false
+    t.string "use_chara", null: false
+    t.string "need_chara", null: false
+    t.string "play_style", null: false
+    t.integer "flag", default: 1, null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false

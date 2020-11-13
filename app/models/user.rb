@@ -3,4 +3,6 @@ class User < ApplicationRecord
     
     validates :name, presence: true
     validates :discord_id, presence: true
+    
+    has_many :recruitments
 end

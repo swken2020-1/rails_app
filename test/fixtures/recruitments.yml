@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mode: MyString
+  rank: MyString
+  use_chara: MyString
+  need_chara: MyString
+  play_style: MyString
+  flag: 1
+
+two:
+  mode: MyString
+  rank: MyString
+  use_chara: MyString
+  need_chara: MyString
+  play_style: MyString
+  flag: 1

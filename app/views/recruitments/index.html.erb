@@ -1,0 +1,11 @@
+<h1>募集一覧</h1>
+
+<%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
+<% @recruitments.each do |recruitment| %>
+    <p>モード：<%= recruitment.mode %></p>
+    <p>要求ランク：<%= recruitment.rank %></p>
+    <p>使用キャラ：<%= recruitment.use_chara %></p>
+    <p>使って欲しいキャラ：<%= recruitment.need_chara %></p>
+<% end %>
+
+<%= link_to "ログアウト", logout_path, method: :delete %>

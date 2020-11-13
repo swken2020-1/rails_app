@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: 'top#main'
   get '/users/show', to: 'users#show'
   resources :users
+  resources :recruitments
 end

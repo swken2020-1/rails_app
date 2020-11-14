@@ -6,7 +6,7 @@ class CreateRecruitments < ActiveRecord::Migration[5.2]
       t.string :use_chara, presence: true
       t.string :need_chara, presence: true
       t.string :play_style, presence: true
-      t.integer :flag, null: false, default: 1
+      t.integer :flag, null: false, default: 0
       t.integer :user_id
 
       t.timestamps

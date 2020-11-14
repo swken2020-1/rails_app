@@ -2,10 +2,23 @@
 
 <%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
 <% @recruitments.each do |recruitment| %>
-    <p>モード：<%= recruitment.mode %></p>
-    <p>要求ランク：<%= recruitment.rank %></p>
-    <p>使用キャラ：<%= recruitment.use_chara %></p>
-    <p>使って欲しいキャラ：<%= recruitment.need_chara %></p>
+    <div class="content_post" >
+        <p>投稿ユーザー：<%= link_to "#{User.find_by(id: recruitment.user_id).name}", "/users/#{recruitment.user_id}", method: :get %></p>
+        <p>モード：<%= recruitment.mode %></p>
+        <p>要求ランク：<%= recruitment.rank %></p>
+        <p>Use Legend：<%= recruitment.use_chara %></p>
+        <p>Want Legend：<%= recruitment.need_chara %></p>
+        <p>Play Style：<%= recruitment.play_style %></p>
+        <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
+        <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
+            <%= form_with model: recruitment do |f| %>
+                <%= f.label :flag, "募集状況" %>
+                <%= f.check_box :flag %>
+                <%= f.submit "更新"  %>
+            <% end %>
+        <% else %>
+        <% end %>
+    </div>
 <% end %>
 
 <%= link_to "ログアウト", logout_path, method: :delete %>

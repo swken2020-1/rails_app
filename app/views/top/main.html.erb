@@ -1,5 +1,21 @@
-<h1><span>募集一覧</span></h1>
+<h1><span>Find Apex Friends</span></h1>
 <div class="right-area">
-    <%= link_to "新規登録", new_user_path %>
+    <%= link_to "新規登録", "users/new" %>
     <%= link_to "ログイン", login_url %>
 </div>
+
+<h3>このサービスについて</h3>
+<p>Apexを人としたいと思う事はありませんか？そんな時、どういうキャラを使うのか、
+どんなプレイスタイルなのかで悩むことがありますよね。そんな悩みを解決します。</p>
+
+<% @recruitments.each do |recruitment| %>
+    <div class="content_post" >
+        <p>投稿ユーザー：<%= "#{User.find_by(id: recruitment.user_id).name}" %></p>
+        <p>モード：<%= recruitment.mode %></p>
+        <p>要求ランク：<%= recruitment.rank %></p>
+        <p>Use Legend：<%= recruitment.use_chara %></p>
+        <p>Want Legend：<%= recruitment.need_chara %></p>
+        <p>Play Style：<%= recruitment.play_style %></p>
+        <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
+    </div>
+<% end %>

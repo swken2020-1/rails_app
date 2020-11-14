@@ -2,7 +2,7 @@
 
 <%= form_with model: @recruitment do |f| %>
     <%= f.label :mode, 'モード' %>
-    <%= f.select :mode,  [["ランク","ランク"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %><br>
+    <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %><br>
     <%= f.label :rank, '希望ランク' %>
     <%= f.text_field :rank %><br>
     <%= f.label :use_chara, '使うキャラ' %>

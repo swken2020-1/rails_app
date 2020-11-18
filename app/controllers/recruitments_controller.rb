@@ -3,7 +3,7 @@ class RecruitmentsController < ApplicationController
   
   def index
     @user = User.find_by(id: session[:user_id])
-    @recruitments = Recruitment.all
+    @recruitments = Recruitment.all.order(id: "DESC")
   end
 
   def new
@@ -27,6 +27,7 @@ class RecruitmentsController < ApplicationController
   end
   
   def show
+    @recruitment = Recruitment.find(params[:id])
   end
 
   def edit

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/users/new' => 'users#new'
   get '/users/:id' => 'users#show'
-  post 'recruitments/index', to: 'recruitments#update' 
+  post '/recruitments/index', to: 'recruitments#update'
+  get '/recruitments/:id', to: 'recruitments#show'
   resources :users
   resources :recruitments
 end

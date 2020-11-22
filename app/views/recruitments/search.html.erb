@@ -1,19 +1,3 @@
-<h1>募集一覧</h1>
-
-<%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
-<h3>検索</h3>
-
-<%= form_with url: recruitments_search_path, method: :get, local: true do |f| %>
-    <%= f.label :mode, 'モード' %>
-    <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %>
-    <%= f.label :want_chara, '使いたいキャラ' %>
-    <%= f.select :want_chara,  [["レイス","レイス"], ["パスファインダー","パスファインダー"], ["オクタン", "オクタン"], ["ミラージュ", "ミラージュ"], 
-    ["バンガロール","バンガロール"], ["ジブラルタル", "ジブラルタル"], ["ローバ", "ローバ"], ["レブナント", "レブナント"], ["ライフライン", "ライフライン"],
-    ["コースティック", "コースティック"], ["ホライゾン", "ホライゾン"],["ブラッドハウンド", "ブラッドハウンド"], ["クリプト", "クリプト"], 
-    ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
-    <%= f.submit '検索' %>
-<% end %>
-
 <% @recruitments.each do |recruitment| %>
     <div class="content_post" >
         <p>投稿ユーザー：<%= link_to "#{User.find_by(id: recruitment.user_id).name}", "/users/#{recruitment.user_id}", method: :get %></p>
@@ -36,5 +20,3 @@
         <% end %>
     </div>
 <% end %>
-
-<%= link_to "ログアウト", logout_path, method: :delete %>

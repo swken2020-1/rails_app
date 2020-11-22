@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get '/users/new' => 'users#new'
   get '/users/:id' => 'users#show'
   get '/recruitments/new', to: 'recruitments#new'
+  get '/recruitments/search', to: 'recruitments#search'
   post '/recruitments/index', to: 'recruitments#update'
   get '/recruitments/:id', to: 'recruitments#show'
+  
   resources :users
   resources :recruitments
 end

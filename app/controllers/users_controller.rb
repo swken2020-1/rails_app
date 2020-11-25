@@ -20,6 +20,16 @@ class UsersController < ApplicationController
     @recruitments = Recruitment.where(user_id: @user.id).order(id: "DESC")
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    if @user.id == session[:user_id]
+      @user.destroy
+      reset_session
+      redirect_to root_path
+    end
+  end
+  
+  
   private
   
   def user_params

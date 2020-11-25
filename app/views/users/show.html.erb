@@ -29,3 +29,7 @@
 </div>
 <% end %>
 
+<% if @user.id == session[:user_id] %> 
+    <%= link_to "ユーザーの削除", "/users/#{session[:user_id]}", method: :delete, data: { confirm: "アカウント情報を削除しますよろしいですか？" } %>
+<% else %>
+<% end %>

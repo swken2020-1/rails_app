@@ -14,9 +14,12 @@
         <p>Use Legend：<%= recruitment.use_chara %></p>
         <p>Want Legend：<%= recruitment.need_chara %></p>
         <p>Play Style：<%= recruitment.play_style %></p>
-        <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
+        <div class="recruitment_color" >
+         <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
+        </div>
         <%= link_to "詳細", "/recruitments/#{recruitment.id}" %>
         <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
+            
             <%= form_with model: recruitment do |f| %>
                 <%= f.label :flag, "募集状況" %>
                 <%= f.check_box :flag %>

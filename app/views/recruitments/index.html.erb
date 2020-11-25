@@ -24,6 +24,7 @@
         <p>Want Legend：<%= recruitment.need_chara %></p>
         <p>Play Style：<%= recruitment.play_style %></p>
         <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
+
         <%= link_to "詳細", "/recruitments/#{recruitment.id}" %>
         <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
             <%= form_with model: recruitment do |f| %>
@@ -32,6 +33,10 @@
                 <%= f.submit "更新"  %>
                 <%= link_to image_tag('/assets/twitter.png', :class => "add_style"), "https://twitter.com/share?url=Apex一緒にやる人募集中！", title: 'タイトル', target: '_blank', class: 'add_style' %>
             <% end %>
+        <% else %>
+        <% end %>
+        <% if recruitment.user_id == session[:user_id]  %> 
+        <%= link_to '削除', "/recruitments/#{recruitment.id}", method: :delete %>
         <% else %>
         <% end %>
     </div>

@@ -31,7 +31,11 @@ class RecruitmentsController < ApplicationController
   end
   
   def destroy
-    @recruitment = Recruitment.find_by(params[:id])
+    @recruitment = Recruitment.find(params[:id])
+    if @recruitment.user_id == session[:user_id]
+      @recruitment.destroy
+      redirect_to recruitments_path
+    end
   end
   
   def search

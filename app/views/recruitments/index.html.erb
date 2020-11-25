@@ -5,16 +5,32 @@
     <%= link_to "ログアウト", logout_path, method: :delete %>
 </div>
 
+<%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
+<h3>検索</h3>
+
+<%= form_with url: recruitments_search_path, method: :get, local: true do |f| %>
+    <%= f.label :mode, 'モード' %>
+    <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %>
+    <%= f.label :want_chara, '使いたいキャラ' %>
+    <%= f.select :want_chara,  [["レイス","レイス"], ["パスファインダー","パスファインダー"], ["オクタン", "オクタン"], ["ミラージュ", "ミラージュ"], 
+    ["バンガロール","バンガロール"], ["ジブラルタル", "ジブラルタル"], ["ローバ", "ローバ"], ["レブナント", "レブナント"], ["ライフライン", "ライフライン"],
+    ["コースティック", "コースティック"], ["ホライゾン", "ホライゾン"],["ブラッドハウンド", "ブラッドハウンド"], ["クリプト", "クリプト"], 
+    ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
+    <%= f.submit '検索' %>
+<% end %>
+
 <% @recruitments.each do |recruitment| %>
     <div class="flex">
         <div class="content_post" >
         <p>投稿ユーザー：<%= link_to "#{User.find_by(id: recruitment.user_id).name}", "/users/#{recruitment.user_id}", method: :get %></p>
+        <p>DiscordID：<%= "#{User.find_by(id: recruitment.user_id).discord_id}" %></p>
         <p>モード：<%= recruitment.mode %></p>
         <p>要求ランク：<%= recruitment.rank %></p>
         <p>Use Legend：<%= recruitment.use_chara %></p>
         <p>Want Legend：<%= recruitment.need_chara %></p>
         <p>Play Style：<%= recruitment.play_style %></p>
         <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
+
         <%= link_to "詳細", "/recruitments/#{recruitment.id}" %>
         <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
             <%= form_with model: recruitment do |f| %>
@@ -25,6 +41,11 @@
             <% end %>
         <% else %>
         <% end %>
+
         </div>
+        <% if recruitment.user_id == session[:user_id]  %> 
+        <%= link_to '削除', "/recruitments/#{recruitment.id}", method: :delete %>
+        <% else %>
+        <% end %>
     </div>
 <% end %>

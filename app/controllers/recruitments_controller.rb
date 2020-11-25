@@ -29,7 +29,24 @@ class RecruitmentsController < ApplicationController
   def show
     @recruitment = Recruitment.find(params[:id])
   end
-
+  
+  def destroy
+    @recruitment = Recruitment.find(params[:id])
+    if @recruitment.user_id == session[:user_id]
+      @recruitment.destroy
+      redirect_to recruitments_path
+    end
+  end
+  
+  def search
+    if params[:mode]=="指定無し"
+      params[:mode] = nil
+      @recruitments = Recruitment.all.order(id: "DESC")
+    else
+      @recruitments = Recruitment.where(mode: [params[:mode]], need_chara: params[:want_chara]).order(id: "DESC")
+    end
+  end
+  
   def edit
   end
   

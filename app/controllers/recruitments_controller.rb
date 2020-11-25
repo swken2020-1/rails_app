@@ -30,6 +30,10 @@ class RecruitmentsController < ApplicationController
     @recruitment = Recruitment.find(params[:id])
   end
   
+  def destroy
+    @recruitment = Recruitment.find_by(params[:id])
+  end
+  
   def search
     if params[:mode]=="指定無し"
       params[:mode] = nil

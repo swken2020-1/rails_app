@@ -2,8 +2,11 @@
 
 <%= "ユーザ名：" + @user.name %>
 <p>今までの募集</p>
-
+<div class="right-area">  
+    <%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
+</div>
 <% @recruitments.each do |recruitment| %>
+<div class="flex">
     <div class="content_post" >
         <p>投稿ユーザー：<%= link_to "#{User.find_by(id: recruitment.user_id).name}", "/users/#{recruitment.user_id}", method: :get %></p>
         <p>モード：<%= recruitment.mode %></p>
@@ -23,6 +26,6 @@
         <% else %>
         <% end %>
     </div>
+</div>
 <% end %>
 
-<%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>

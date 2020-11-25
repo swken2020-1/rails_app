@@ -1,8 +1,27 @@
-.content_post {
+.flex{
+    float: left;
+    background-color: #aaa; 
+    overflow: auto;
+    margin-left: 70px;
+    margin-bottom: 50px;
     border: solid;
+    width: 300px;
+    
+
+}
+
+.content_post {
+    
+    height: 300px; 
+    
 }
 
 .add_style{
   width: 30px;
   height: 30px;
 }
+
+nav {
+  list-style: none;
+}
+ 

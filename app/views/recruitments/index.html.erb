@@ -1,8 +1,13 @@
 <h1>募集一覧</h1>
+<div class="right-area">   
+    <%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
+   
+    <%= link_to "ログアウト", logout_path, method: :delete %>
+</div>
 
-<%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
 <% @recruitments.each do |recruitment| %>
-    <div class="content_post" >
+    <div class="flex">
+        <div class="content_post" >
         <p>投稿ユーザー：<%= link_to "#{User.find_by(id: recruitment.user_id).name}", "/users/#{recruitment.user_id}", method: :get %></p>
         <p>モード：<%= recruitment.mode %></p>
         <p>要求ランク：<%= recruitment.rank %></p>
@@ -20,7 +25,6 @@
             <% end %>
         <% else %>
         <% end %>
+        </div>
     </div>
 <% end %>
-
-<%= link_to "ログアウト", logout_path, method: :delete %>

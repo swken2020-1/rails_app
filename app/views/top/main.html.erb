@@ -1,7 +1,9 @@
-<h1><span>Find Apex Friends</span></h1>
+
 <div class="right-area">
-    <%= link_to "新規登録", "users/new" %>
-    <%= link_to "ログイン", login_url %>
+        <nav>
+            <li><%= link_to "新規登録", "users/new" ,{class: "button"}%></li>
+            <li><%= link_to "ログイン", login_url ,{class: "button"}%></li>
+        </nav>
 </div>
 
 <h3>このサービスについて</h3>
@@ -9,6 +11,7 @@
 どんなプレイスタイルなのかで悩むことがありますよね。そんな悩みを解決します。</p>
 
 <% @recruitments.each do |recruitment| %>
+<div class="flex">
     <div class="content_post" >
         <p>投稿ユーザー：<%= "#{User.find_by(id: recruitment.user_id).name}" %></p>
         <p>モード：<%= recruitment.mode %></p>
@@ -18,4 +21,5 @@
         <p>Play Style：<%= recruitment.play_style %></p>
         <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
     </div>
+</div>
 <% end %>

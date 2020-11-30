@@ -10,7 +10,7 @@ h1 {
   
 }
 
-.button {
+.new_button {
   display       : inline-block;
   border-radius : 5%;          
   font-size     : 18pt;        
@@ -24,14 +24,38 @@ h1 {
   box-shadow    : 6px 6px 3px #666666;  
   border        : 2px solid #30475e;    
   margin-bottom: 10px;
+  position: absolute; right: 130px; top: 0px
 
 }
-.button:hover {
+.new_button:hover {
   box-shadow    : none;        
   color         : #30475e;     
   background    : #ffffff;     
 }
 
+
+.log_button {
+  display       : inline-block;
+  border-radius : 5%;          
+  font-size     : 18pt;        
+  text-align    : center;      
+  cursor        : pointer;     
+  padding       : 12px 12px;  
+  background    : #519872;    
+  color         : #ffffff;     
+  line-height   : 1em;        
+  transition    : .3s;        
+  box-shadow    : 6px 6px 3px #666666;  
+  border        : 2px solid #30475e;    
+  margin-bottom: 10px;
+  position: absolute; right: 0px; top: 0px
+
+}
+.log_button:hover {
+  box-shadow    : none;        
+  color         : #30475e;     
+  background    : #ffffff;     
+}
 .example {
   position: relative;
   }

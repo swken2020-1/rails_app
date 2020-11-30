@@ -18,6 +18,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @recruitments = Recruitment.where(user_id: @user.id).order(id: "DESC")
+    if @recruitments.count > 9
+      _recs_most_mode = @recruitments.pluck(:mode)
+      @most_mode = _recs_most_mode.group_by{|e| e}.max_by{|_,v| v.size}.first
+    else
+      @most_mode = "データ数を増やしたら良く遊ぶモードが分かるよ"
+    end
   end
   
   def destroy

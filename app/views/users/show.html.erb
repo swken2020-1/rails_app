@@ -5,6 +5,9 @@
 <div class="right-area">  
     <%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
 </div>
+
+<%= "最も良くプレイするモード #{@most_mode}" %>
+
 <% @recruitments.each do |recruitment| %>
 <div class="flex">
     <div class="content_post" >

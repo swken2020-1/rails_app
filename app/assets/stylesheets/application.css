@@ -20,3 +20,19 @@
      color:#a4b494;
 
  }
+ 
+ 
+body,html {
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(180deg, #ffffff 70%, #ffffff);
+  text-align: center;
+  font-family: 'Segoe UI';
+}
+ 
+ * {
+
+  box-sizing: border-box;
+}

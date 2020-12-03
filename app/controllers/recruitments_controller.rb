@@ -16,7 +16,7 @@ class RecruitmentsController < ApplicationController
     if @recruitment.save
       redirect_to recruitments_path, notice: "投稿しました"
     else
-      render :new
+      render 'new'
     end
   end
   

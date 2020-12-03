@@ -1,6 +1,15 @@
 <h1>Apex Friendsを探そう！</h1>
+<% if @recruitment.errors.any? %>
+    <div class="alert alert-warning">
+    <ul>
+      <% @recruitment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<%= form_with model: @recruitment do |f| %>
+<%= form_with model: @recruitment, local: true do |f| %>
     <%= f.label :mode, 'モード' %>
     <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %><br>
     <%= f.label :rank, '希望ランク' %>
@@ -17,7 +26,7 @@
     ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
     <%= f.label :play_style, 'プレイスタイル' %>
     <%= f.text_field :play_style %><br>
-    <%= f.submit '登録する' %>
+    <%= f.submit '登録する', {class: "btn btn-primary"} %>
 <% end %>
 
 <%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>

@@ -2,6 +2,9 @@ class Recruitment < ApplicationRecord
     
     belongs_to :user
     
+    validates :rank,    length: { maximum: 15 }, presence: true
+    validates :play_style,    length: { maximum: 15 }, presence: true
+    
 #   scope :search, -> (search_params) do
 #       return if search_params.blank?
 #        

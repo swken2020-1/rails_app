@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "/assets/top.css" %>
+<%= stylesheet_link_tag "/assets/recruitments.css" %>
 
 <div class="example">
   <div class="ape">
@@ -6,16 +8,13 @@
 　<h3>このサービスについて</h3>
 　<p>Apexを人としたいと思う事はありませんか？そんな時、どういうキャラを使うのか、どんなプレイスタイルなのかで悩むことがありますよね。そんな悩みを解決します。</p>
 </div>
-<div class="right-area">
-        
+<div class="fixed-top">
+    <div class="float-right">
 　　<%= link_to "新規登録", "users/new" ,{class: "btn btn-primary pull-left"}%>
     <%= link_to "ログイン", login_url ,{class: "btn btn-info pull-right"}%>
-        
+    </div>
 </div>
 <h1>募集一覧</h1>
-
-
-
 
 <% @recruitments.each do |recruitment| %>
 <div class="flex">

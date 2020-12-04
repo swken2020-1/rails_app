@@ -1,6 +1,6 @@
 <h1>募集一覧</h1>
 <div class="right-area">   
-    <%= link_to "ログアウト", logout_path, method: :delete %>
+    <%= link_to("ログアウト", logout_path, { method: :delete, class: "nav-link"}) %>
 </div>
 
 <%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
@@ -16,7 +16,7 @@
     ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
     <%= f.submit '検索' %>
 <% end %>
-
+<%= paginate @recruitments %>
 <% @recruitments.each do |recruitment| %>
     <div class="flex">
         <div class="content_post" >
@@ -27,13 +27,11 @@
         <p>Use Legend：<%= recruitment.use_chara %></p>
         <p>Want Legend：<%= recruitment.need_chara %></p>
         <p>Play Style：<%= recruitment.play_style %></p>
-
         <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
 
 
         <%= link_to "詳細", "/recruitments/#{recruitment.id}" %>
         <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
-            
             <%= form_with model: recruitment do |f| %>
                 <%= f.label :flag, "募集状況" %>
                 <%= f.check_box :flag %>
@@ -50,4 +48,3 @@
         <% end %>
     </div>
 <% end %>
-<%= paginate @recruitments %>

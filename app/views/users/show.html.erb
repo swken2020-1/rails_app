@@ -2,12 +2,16 @@
 
 <%= "ユーザ名：" + @user.name %>
 <p>今までの募集</p>
-<div class="right-area">  
-    <%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
-</div>
-
 <%= "最も良くプレイするモード #{@most_mode}" %>
 
+
+<p><% if @user.id == session[:user_id] %> 
+    <%= link_to "ユーザーの削除", "/users/#{session[:user_id]}", method: :delete, data: { confirm: "アカウント情報を削除しますよろしいですか？" } %>
+<% else %></p>
+<% end %>
+<p><div class="right-area">  
+    <%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
+</div></p>
 <% @recruitments.each do |recruitment| %>
 <div class="flex">
     <div class="content_post" >
@@ -32,7 +36,3 @@
 </div>
 <% end %>
 
-<% if @user.id == session[:user_id] %> 
-    <%= link_to "ユーザーの削除", "/users/#{session[:user_id]}", method: :delete, data: { confirm: "アカウント情報を削除しますよろしいですか？" } %>
-<% else %>
-<% end %>

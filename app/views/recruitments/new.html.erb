@@ -1,32 +1,43 @@
-<h1>Apex Friendsを探そう！</h1>
-<% if @recruitment.errors.any? %>
-    <div class="alert alert-warning">
+<%= stylesheet_link_tag "/assets/recruitments.css" %>
+<div>
+  <div class="col-md-4 offset-md-4">
+  <h2 class="text-center pt-5">Apex Friendsを探そう！</h2>
+  <% if @recruitment.errors.any? %>
+  <div class="alert alert-warning">
     <ul>
       <% @recruitment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   </div>
-<% end %>
-
-<%= form_with model: @recruitment, local: true do |f| %>
-    <%= f.label :mode, 'モード' %>
-    <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %><br>
-    <%= f.label :rank, '希望ランク' %>
-    <%= f.text_field :rank %><br>
-    <%= f.label :use_chara, '使うキャラ' %>
-    <%= f.select :use_chara,  [["レイス","レイス"], ["パスファインダー","パスファインダー"], ["オクタン", "オクタン"], ["ミラージュ", "ミラージュ"], 
+  <% end %>
+  
+  
+  <div class="form-group">
+  <%= form_with model: @recruitment, local: true do |f| %>
+  <%= f.label :mode, 'モード' %>
+  <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %><br>
+  <%= f.label :rank, '希望ランク' %>
+  <%= f.text_field :rank %><br>
+  <%= f.label :use_chara, '使うキャラ' %>
+  <%= f.select :use_chara,  [["レイス","レイス"], ["パスファインダー","パスファインダー"], ["オクタン", "オクタン"], ["ミラージュ", "ミラージュ"], 
     ["バンガロール","バンガロール"], ["ジブラルタル", "ジブラルタル"], ["ローバ", "ローバ"], ["レブナント", "レブナント"], ["ライフライン", "ライフライン"],
     ["コースティック", "コースティック"], ["ホライゾン", "ホライゾン"],["ブラッドハウンド", "ブラッドハウンド"], ["クリプト", "クリプト"], 
-    ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
-    <%= f.label :need_chara, '使って欲しいキャラ' %>
-    <%= f.select :need_chara,  [["レイス","レイス"], ["パスファインダー","パスファインダー"], ["オクタン", "オクタン"], ["ミラージュ", "ミラージュ"], 
+    ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]], class: "form-control" %><br>
+  <%= f.label :need_chara, '使って欲しいキャラ' %>
+  <%= f.select :need_chara,  [["レイス","レイス"], ["パスファインダー","パスファインダー"], ["オクタン", "オクタン"], ["ミラージュ", "ミラージュ"], 
     ["バンガロール","バンガロール"], ["ジブラルタル", "ジブラルタル"], ["ローバ", "ローバ"], ["レブナント", "レブナント"], ["ライフライン", "ライフライン"],
     ["コースティック", "コースティック"], ["ホライゾン", "ホライゾン"],["ブラッドハウンド", "ブラッドハウンド"], ["クリプト", "クリプト"], 
     ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
     <%= f.label :play_style, 'プレイスタイル' %>
     <%= f.text_field :play_style %><br>
     <%= f.submit '登録する', {class: "btn btn-primary"} %>
-<% end %>
-
-<%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
+  <% end %>
+  </div>
+    <div class="text-left pb-2">
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to "トップに戻る", recruitments_path %>
+  </button>
+  </div>
+  </div>
+</div>

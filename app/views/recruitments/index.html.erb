@@ -1,14 +1,9 @@
 <%= stylesheet_link_tag "/assets/recruitments.css" %>
 <h1>募集一覧</h1>
-<<<<<<< HEAD
-<div class="right-area">   
-    <%= link_to("ログアウト", logout_path, { method: :delete, class: "nav-link"}) %>
-=======
 <div class="fixed-top">
     <div class="float-right">
     <%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-danger" %>
     </div>
->>>>>>> 8738f66dad84f7a024b1ac966097d17d84748215
 </div>
 <%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
 <h3>検索</h3>
@@ -23,7 +18,7 @@
     ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
     <%= f.submit '検索', class: "btn btn-primary" %>
 <% end %>
-<%= paginate @recruitments %>
+
 <% @recruitments.each do |recruitment| %>
     <div class="flex">
         <div class="content_post" >
@@ -55,8 +50,5 @@
         <% end %>
     </div>
 <% end %>
-<<<<<<< HEAD
-=======
 <%= link_to_prev_page @recruitments, '前のページ', class: "prev" %>
 <%= link_to_next_page @recruitments, '次のページ', class: "next" %>
->>>>>>> 8738f66dad84f7a024b1ac966097d17d84748215

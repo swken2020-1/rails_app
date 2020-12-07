@@ -39,11 +39,10 @@ class RecruitmentsController < ApplicationController
   end
   
   def search
-    if params[:mode]=="指定無し"
-      params[:mode] = nil
-      @recruitments = Recruitment.all.order(id: "DESC")
-    else
-      @recruitments = Recruitment.where(mode: [params[:mode]], need_chara: params[:want_chara]).order(id: "DESC")
+    if params[:mode]=="指定無し" && params[:want_chara]=="誰でも"
+      @recruitments = Recruitment.where(flag: 0).order(id: "DESC")
+    elsif params[:mode]=="指定無し"
+      @recruitments = Recruitment.where(need_chara: "誰でも").or(Recruitment.where(need_chara: params[:want_chara])).order(id: "DESC")
     end
   end
   

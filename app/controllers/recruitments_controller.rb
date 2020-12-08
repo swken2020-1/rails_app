@@ -12,9 +12,10 @@ class RecruitmentsController < ApplicationController
   
   def create
     @recruitment = current_user.recruitments.new(recruitment_params)
-    
-    if @recruitment.save
-      redirect_to recruitments_path, notice: "投稿しました"
+    if @recruitment.use_chara == @recruitment.need_chara
+      redirect_to recruitments_new_path, warning: "使うキャラと使って欲しいキャラは同一のキャラを選べません"
+    elsif @recruitment.save
+      redirect_to recruitments_path, success: "投稿しました"
     else
       render 'new'
     end
@@ -43,6 +44,9 @@ class RecruitmentsController < ApplicationController
       @recruitments = Recruitment.where(flag: 0).order(id: "DESC")
     elsif params[:mode]=="指定無し"
       @recruitments = Recruitment.where(need_chara: "誰でも").or(Recruitment.where(need_chara: params[:want_chara])).order(id: "DESC")
+    end
+    if @recruitments==nil
+      redirect_to recruitments_path, warning: "検索結果にマッチするものがありませんでした"
     end
   end
   

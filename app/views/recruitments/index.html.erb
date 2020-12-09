@@ -5,7 +5,7 @@
     <%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-danger" %>
     </div>
 </div>
-<%= link_to "Apexフレンドを募集する！", new_recruitment_path %>
+<%= link_to "Apexフレンドを募集する！", new_recruitment_path, class: "btn btn-primary" %>
 <h3>検索</h3>
 
 <%= form_with url: recruitments_search_path, method: :get, local: true do |f| %>
@@ -16,7 +16,7 @@
     ["バンガロール","バンガロール"], ["ジブラルタル", "ジブラルタル"], ["ローバ", "ローバ"], ["レブナント", "レブナント"], ["ライフライン", "ライフライン"],
     ["コースティック", "コースティック"], ["ホライゾン", "ホライゾン"],["ブラッドハウンド", "ブラッドハウンド"], ["クリプト", "クリプト"], 
     ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
-    <%= f.submit '検索', class: "btn btn-primary" %>
+    <%= f.submit '検索', class: "btn btn-info" %>
 <% end %>
 
 <% @recruitments.each do |recruitment| %>
@@ -50,5 +50,10 @@
         <% end %>
     </div>
 <% end %>
+<<<<<<< HEAD
 <%= link_to_prev_page @recruitments, '前のページ', class: "prev" %>
 <%= link_to_next_page @recruitments, '次のページ', class: "next" %>
+=======
+<%= link_to_prev_page @recruitments, '前のページ', class: "d-flex align-items-end" %>
+<%= link_to_next_page @recruitments, '次のページ', class: "next" %>
+>>>>>>> cc5baeb4b02df76eec80e43291f0871dd9aedbda

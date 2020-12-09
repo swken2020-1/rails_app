@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      redirect_to login_url, notice: "登録完了　ログインしてください"
+      redirect_to login_url, success: "登録完了　ログインしてください"
     else
       render :new, model: @user
     end

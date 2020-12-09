@@ -3,7 +3,7 @@ class RecruitmentsController < ApplicationController
   
   def index
     @user = User.find_by(id: session[:user_id])
-    @recruitments = Recruitment.all.order(id: "DESC").page(params[:page]).without_count.per(5)
+    @recruitments = Recruitment.all.order(id: "DESC").page(params[:page]).without_count.per(8)
   end
 
   def new

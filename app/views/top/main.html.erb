@@ -15,17 +15,34 @@
     </div>
 </div>
 <h1>募集一覧</h1>
-
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">投稿ユーザー</th>
+      <th scope="col">モード</th>
+      <th scope="col">要求ランク</th>
+      <th scope="col">Use Legend</th>
+      <th scope="col">Want Legend</th>
+      <th scope="col">Play Style</th>
+      <th scope="col">募集状況</th>
+    </tr>
+  </thead>
+ </table>
 <% @recruitments.each do |recruitment| %>
-<div class="flex">
-    <div class="content_post" >
-        <p>投稿ユーザー：<%= "#{User.find_by(id: recruitment.user_id).name}" %></p>
-        <p>モード：<%= recruitment.mode %></p>
-        <p>要求ランク：<%= recruitment.rank %></p>
-        <p>Use Legend：<%= recruitment.use_chara %></p>
-        <p>Want Legend：<%= recruitment.need_chara %></p>
-        <p>Play Style：<%= recruitment.play_style %></p>
-        <p>募集状況：<%= recruitment.flag==0? "募集中" : "募集終了" %></p>
-    </div>
-</div>
+
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row"><%= "#{User.find_by(id: recruitment.user_id).name}" %></th>
+      <td><%= recruitment.mode %></td>
+      <td><%= recruitment.rank %></td>
+      <td><%= recruitment.use_chara %></td>
+      <td><%= recruitment.need_chara %></td>
+      <td><%= recruitment.play_style %></td>
+      <td><%= recruitment.flag==0? "募集中" : "募集終了" %></td>
+    </tr>
+   
+  </tbody>
+</table>
 <% end %>

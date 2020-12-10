@@ -1,8 +1,22 @@
 h1 {
   position: relative;
+  margin:10px;
+  
   
 }
-
+h3{
+  color:#ffffff;
+  font-size: 40px;
+  text-shadow : 
+       2px  2px 1px #3b5249,
+      -2px  2px 1px #3b5249,
+       2px -2px 1px #3b5249,
+      -2px -2px 1px #3b5249,
+       2px  0px 1px #3b5249,
+       0px  2px 1px #3b5249,
+      -2px  0px 1px #3b5249,
+       0px -2px 1px #3b5249;
+}
 
 .right-area {
   text-align: right;
@@ -11,102 +25,27 @@ h1 {
   
 }
 
-.new_button {
-  display       : inline-block;
-  border-radius : 5%;          
-  font-size     : 18pt;        
-  text-align    : center;      
-  cursor        : pointer;     
-  padding       : 12px 12px;  
-  background    : #519872;    
-  color         : #ffffff;     
-  line-height   : 1em;        
-  transition    : .3s;        
-  box-shadow    : 6px 6px 3px #666666;  
-  border        : 2px solid #30475e;    
-  margin-bottom: 10px;
-  position: absolute; right: 130px; top: 0px;
-  text-decoration: none;
 
+
+.cover-img {
+	height: 600px;
+	display: table;
+	width: 100%;
+	background-size: cover;
 }
-.new_button:hover {
-  box-shadow    : none;        
-  color         : #30475e;     
-  background    : #ffffff;     
+.cover-text {
+	display: table-cell;
+	vertical-align: middle;
+  text-align: center;
+  font-size: 25px;
+  color:#ffffff;
+  
 }
 
-
-.log_button {
-  display       : inline-block;
-  border-radius : 5%;          
-  font-size     : 18pt;        
-  text-align    : center;      
-  cursor        : pointer;     
-  padding       : 12px 12px;  
-  background    : #519872;    
-  color         : #ffffff;     
-  line-height   : 1em;        
-  transition    : .3s;        
-  box-shadow    : 6px 6px 3px #666666;  
-  border        : 2px solid #30475e;    
-  margin-bottom: 10px;
-  position: absolute; right: 0px; top: 0px
-
+.alert {
+  margin:0
 }
-.log_button:hover {
-  box-shadow    : none;        
-  color         : #30475e;     
-  background    : #ffffff;     
+.ai{
+  margin-bottom:10em;
 }
-.example {
-  position: relative;
-  }
 
-.example h3 {
-  position: absolute;
-  color: #ffffff;
-  font-size: 5em;
-  top: 30%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
-    text-shadow : 
-       2px  2px 1px #000000,
-      -2px  2px 1px #000000,
-       2px -2px 1px #000000,
-      -2px -2px 1px #000000,
-       2px  0px 1px #000000,
-       0px  2px 1px #000000,
-      -2px  0px 1px #000000,
-       0px -2px 1px #000000;
-  /*文字の装飾は省略*/
-  }
-.example p {
-  position: absolute;
-  color: #ffffff;
-  font-size: 2em;
-  top: 60%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
-  text-shadow    : 
-       1px  1px 1px #000000,
-      -1px  1px 1px #000000,
-       1px -1px 1px #000000,
-      -1px -1px 1px #000000,
-       1px  0px 1px #000000,
-       0px  1px 1px #000000,
-      -1px  0px 1px #000000,
-       0px -1px 1px #000000; 
-  /*文字の装飾は省略*/
-  }
-.ape img {
-  width: 100%;
-  margin:0;
-  }

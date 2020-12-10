@@ -9,3 +9,10 @@ ja:
         play_style: プレイスタイル
         flag: 募集フラグ
         user_id: ユーザID
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        discord_id: ディスコードID
+        password: パスワード
+        password_confirmation: 確認用パスワード

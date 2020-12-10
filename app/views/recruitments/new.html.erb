@@ -4,19 +4,9 @@
   <div class="col-md-4 offset-md-4">
   <h2 class="text-center pt-5">Apex Friendsを探そう！</h2>
   
-  <% if @recruitment.errors.any? %>
-  <div class="alert alert-warning">
-    <ul>
-      <% @recruitment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-  
-  
   <div class="form-group">
-  <%= form_with model: @recruitment, local: true do |f| %>
+  <%= form_with model: @recruitment, class: :form, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <%= f.label :mode, 'モード' %>
   <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %><br>
   <%= f.label :rank, '希望ランク' %>

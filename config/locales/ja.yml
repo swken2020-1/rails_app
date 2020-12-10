@@ -6,17 +6,6 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-    models:
-      recruitments: 募集
-    attributes:
-      recruitment:
-        mode: モード
-        rank: ランク
-        use_chara: 使用キャラ
-        need_chara: 使って欲しいキャラ
-        play_style: プレイスタイル
-        flag: 募集フラグ
-        user_id: ユーザID
   date:
     abbr_day_names:
     - 日

@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      recruitment:
+        mode: モード
+        rank: ランク
+        use_chara: 使用キャラ
+        need_chara: 使って欲しいキャラ
+        play_style: プレイスタイル
+        flag: 募集フラグ
+        user_id: ユーザID

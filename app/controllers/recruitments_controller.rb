@@ -43,7 +43,7 @@ class RecruitmentsController < ApplicationController
     if params[:mode]=="指定無し" && params[:want_chara]=="誰でも"
       @recruitments = Recruitment.where(flag: 0).order(id: "DESC")
     elsif params[:mode]=="指定無し"
-      @recruitments = Recruitment.where(need_chara: "誰でも").or(Recruitment.where(need_chara: params[:want_chara])).order(id: "DESC")
+      @recruitments = Recruitment.where(need_chara: "誰でも", flag: 0).or(Recruitment.where(need_chara: params[:want_chara])).order(id: "DESC")
     end
     if @recruitments==nil
       redirect_to recruitments_path, warning: "検索結果にマッチするものがありませんでした"

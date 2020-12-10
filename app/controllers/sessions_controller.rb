@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to recruitments_path, info: "ログインしました"
     else
-      render :new
+      redirect_to login_url, danger: "ログインに失敗しました"
     end
   end
   

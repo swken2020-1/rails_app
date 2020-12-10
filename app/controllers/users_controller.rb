@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_url, success: "登録完了　ログインしてください"
     else
-      render :new, model: @user
+      render 'new'
     end
   end
 

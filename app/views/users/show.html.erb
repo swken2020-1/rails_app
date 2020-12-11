@@ -1,4 +1,3 @@
- <%= stylesheet_link_tag "/assets/users.css" %>
 
 <h1>プロフィール</h1>
 
@@ -8,27 +7,25 @@
 
 
 <p><% if @user.id == session[:user_id] %> 
-    <%= link_to "ユーザーの削除", "/users/#{session[:user_id]}", method: :delete, data: { confirm: "アカウント情報を削除しますよろしいですか？" } %>
+    <%= link_to "ユーザーの削除", "/users/#{session[:user_id]}", method: :delete, data: { confirm: "アカウント情報を削除しますよろしいですか？" }, class: "btn btn-danger" %>
 <% else %></p>
 <% end %>
 <p><div class="right-area">  
-    <%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
+    <%= link_to "トップに戻る", recruitments_path, {class: "btn btn-outline-secondary"} %>
 </div></p>
 
 <table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">投稿ユーザー</th>
+      <th scope="col">ディスコードID</th>
       <th scope="col">モード</th>
       <th scope="col">要求ランク</th>
       <th scope="col">Use Legend</th>
       <th scope="col">Want Legend</th>
       <th scope="col">Play Style</th>
       <th scope="col">募集状況</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">更新</th>
     </tr>
   </thead>
  </table>
@@ -45,20 +42,23 @@
       <td><%= recruitment.use_chara %></td>
       <td><%= recruitment.need_chara %></td>
       <td><%= recruitment.play_style %></td>
-      <td><%= recruitment.flag==0? "募集中" : "募集終了" %></td>
-      <td><%= link_to "詳細", "/recruitments/#{recruitment.id}" %></td>
+      <td><% if recruitment.flag == 0 %>
+            <%= link_to "募集中","/recruitments/#{recruitment.id}" %>
+          <% else %>
+            <%= link_to "募集終了","/recruitments/#{recruitment.id}" %>
+          <% end %>
+      </td>
      
       <td>
       <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
            <%= form_with model: recruitment do |f| %>
                <%= f.label :flag, "募集状況" %>
-               <%= f.check_box :flag %>
-               <%= f.submit "更新"  %>
+               <%= f.check_box :flag, class: "none" %>
+               <%= f.submit "更新", class: "btn btn-secondary"  %>
            <% end %>
       <% else %>
       <% end %>
       </td>
-      <td><%= link_to image_tag('/assets/twitter.png', :class => "add_style"), "https://twitter.com/share?url=Apex一緒にやる人募集中！", title: 'タイトル', target: '_blank', class: 'add_style' %></td>
     </tr>
    
   </tbody>

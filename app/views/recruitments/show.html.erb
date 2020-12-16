@@ -1,20 +1,26 @@
 <%= stylesheet_link_tag "/assets/recruitments.css" %>
-<h1>募集</h1>
+<h1>募集詳細</h1>
 
-<p>モード：<%= @recruitment.mode %></p>
-<p>要求ランク：<%= @recruitment.rank %></p>
-<p>Use Legend：<%= @recruitment.use_chara %></p>
-<p>Want Legend：<%= @recruitment.need_chara %></p>
-<p>Play Style：<%= @recruitment.play_style %></p>
-<p>募集状況：<%= @recruitment.flag==0? "募集中" : "募集終了" %></p>
+<p class="lead">モード：<%= @recruitment.mode %></p>
+<p class="lead">要求ランク：<%= @recruitment.rank %></p>
+<p class="lead">Use Legend：<%= @recruitment.use_chara %></p>
+<p class="lead">Want Legend：<%= @recruitment.need_chara %></p>
+<p class="lead">Play Style：<%= @recruitment.play_style %></p>
+<p class="lead">募集状況：<%= @recruitment.flag==0? "募集中" : "募集終了" %></p>
     <% if @recruitment.user_id == session[:user_id] && @recruitment.flag ==0  %> 
         <%= form_with model: @recruitment do |f| %>
-            <%= f.label :flag, "募集状況" %>
+            <p>
             <%= f.check_box :flag %>
+            <%= f.label :flag, "チェックして更新で募集終了" %>
+            
             <%= f.submit "更新"  %>
-            <%= link_to image_tag('/assets/twitter.png', :class => "add_style"), "https://twitter.com/share?url=Apex一緒にやる人募集中！", title: 'タイトル', target: '_blank', class: 'add_style' %>
+            </p>
+            <p>
+            Twiiterで呼びかける
+            <%= link_to image_tag('/assets/twitter.png', :class => "add_style"), "https://twitter.com/share?url=Apex一緒にやる人募集中！", title: 'Twiiterで呼びかける', target: '_blank', class: 'add_style' %>
+            </p>
         <% end %>
     <% else %>
     <% end %>
 
-<%= link_to "トップに戻る", recruitments_path, {class: "nav-link"} %>
+<%= link_to "トップに戻る", recruitments_path,  {class: "btn btn-outline-secondary"} %>

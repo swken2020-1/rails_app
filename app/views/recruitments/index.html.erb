@@ -6,8 +6,9 @@
     </div>
 </div>
 <%= link_to "Apexフレンドを募集する！", new_recruitment_path, class: "btn btn-primary" %>
-<h3>検索</h3>
+<div class="search">
 
+<h3 >募集検索</h3>
 <%= form_with url: recruitments_search_path, method: :get, local: true do |f| %>
     <%= f.label :mode, 'モード' %>
     <%= f.select :mode,  [["ランクマッチ","ランクマッチ"],["カジュアル","カジュアル"],["イベント","イベント"],["指定無し","指定無し"]] %>
@@ -16,11 +17,13 @@
     ["バンガロール","バンガロール"], ["ジブラルタル", "ジブラルタル"], ["ローバ", "ローバ"], ["レブナント", "レブナント"], ["ライフライン", "ライフライン"],
     ["コースティック", "コースティック"], ["ホライゾン", "ホライゾン"],["ブラッドハウンド", "ブラッドハウンド"], ["クリプト", "クリプト"], 
     ["ランパート", "ランパート"], ["ワットソン", "ワットソン"],["誰でも","誰でも"]] %><br>
-    <%= f.submit '検索', class: "btn btn-info" %>
-<% end %>
     
+    <%= f.submit '検索', class: "btn btn-info" %>
+    
+<% end %>
+</div>    
 <table class="table table-bordered">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th scope="col">投稿ユーザー</th>
       <th scope="col">DiscordID</th>
@@ -30,9 +33,7 @@
       <th scope="col">Want Legend</th>
       <th scope="col">Play Style</th>
       <th scope="col">募集状況</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">※募集者のみ表示</th>
     </tr>
   </thead>
  </table>
@@ -52,28 +53,27 @@
           <% else %>
             <%= link_to "募集終了","/recruitments/#{recruitment.id}" %>
           <% end %>
+          
+          <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0 %>
+              <%= form_with model: recruitment do |f| %>
+                   <p><%= f.check_box :flag %><%= f.label :flag, "募集を締め切る" %>
+                   </p>
+                   <%= f.submit "更新"  %>
+               <% end %>
+          <% else %>
+          <% end %>
       </td>
       <td>
       <% if recruitment.user_id == session[:user_id]  %> 
       <%= link_to '削除', "/recruitments/#{recruitment.id}", method: :delete %>
       <% else %>
       <% end %> 
-      </td>
-      <td>
-      <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0 %> 
-           <%= form_with model: recruitment do |f| %>
-               <%= f.label :flag, "募集状況" %>
-               <%= f.check_box :flag %>
-               <%= f.submit "更新"  %>
-           <% end %>
-      <% else %>
-      <% end %>
-      </td>
-      <td>
+
+
         <% if recruitment.user_id == session[:user_id] %>
           <%= link_to image_tag('/assets/twitter.png', :class => "add_style"), "https://twitter.com/share?url=#{ request.url }/#{recruitment.id}", title: 'タイトル', target: '_blank', class: 'add_style' %>
-          <% end %>
-        </td>
+        <% end %>
+      </td>  
     </tr>
    
   </tbody>

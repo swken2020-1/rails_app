@@ -29,6 +29,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">投稿ユーザー</th>
+      <th scope="col">DiscordID</th>
       <th scope="col">モード</th>
       <th scope="col">要求ランク</th>
       <th scope="col">Use Legend</th>
@@ -45,6 +46,7 @@
   <tbody>
     <tr>
       <th scope="row"><%= "#{User.find_by(id: recruitment.user_id).name}" %></th>
+      <td><%= "#{User.find_by(id: recruitment.user_id).discord_id}" %></td>
       <td><%= recruitment.mode %></td>
       <td><%= recruitment.rank %></td>
       <td><%= recruitment.use_chara %></td>

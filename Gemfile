@@ -58,10 +58,13 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem 'pg', group: :production
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'rails-i18n'
+
+gem 'sqlite3', groups: %w(test development), require: false
+#gem 'pg', groups: %w(production), require: false

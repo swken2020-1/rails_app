@@ -25,11 +25,6 @@
       <th scope="col">Want Legend</th>
       <th scope="col">Play Style</th>
       <th scope="col">募集状況</th>
-      <% if @user.id == session[:user_id] %>
-        <th scope="col">
-        更新
-        </th>
-      <% end %>
     </tr>
   </thead>
  </table>
@@ -53,16 +48,6 @@
           <% end %>
       </td>
      
-      <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %>
-      <td>
-           <%= form_with model: recruitment do |f| %>
-               <%= f.label :flag, "募集状況" %>
-               <%= f.check_box :flag, class: "none" %>
-               <%= f.submit "更新", class: "btn btn-secondary"  %>
-           <% end %>
-      </td>
-      <% else %>
-      <% end %>
     </tr>
    
   </tbody>

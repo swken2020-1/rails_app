@@ -26,7 +26,7 @@
 
 <h1>募集一覧</h1>
 <table class="table table-bordered">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th scope="col">投稿ユーザー</th>
       <th scope="col">モード</th>
@@ -50,7 +50,16 @@
       <td><%= recruitment.use_chara %></td>
       <td><%= recruitment.need_chara %></td>
       <td><%= recruitment.play_style %></td>
-      <td><%= recruitment.flag==0? "募集中" : "募集終了" %></td>
+      <td>
+          <% if recruitment.flag == 0 %>
+            <%=  "募集中" %>
+          <% else %>
+           <span>
+             <%= "募集終了"%>
+           </span>
+            
+          <% end %>
+      </td>
     </tr>
    
   </tbody>

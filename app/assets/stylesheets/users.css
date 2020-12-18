@@ -23,20 +23,7 @@ input:focus {
   transform: scale3d(1.06,1.06,1.06);
 }
 
-button {
-  background: transparent;
-  width: 50%;
-  margin-top: 2.5rem;
-  font-size: 1rem;
-  border: solid 1px #7053c4;
-  padding: 1em 0;
-  color: #708090;
-  transition: all 0.6s;
-}
-button:hover {
-  cursor:pointer;
-  background: #7035c4;
-}
+
 
 h1 {
   color: #519872;

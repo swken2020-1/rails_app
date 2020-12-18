@@ -3,7 +3,7 @@ class RecruitmentsController < ApplicationController
   
   def index
     @user = User.find_by(id: session[:user_id])
-    @recruitments = Recruitment.all.order(id: "DESC").page(params[:page]).without_count.per(8)
+    @recruitments = Recruitment.all.order(id: "DESC").page(params[:page]).without_count.per(10)
   end
 
   def new
@@ -44,6 +44,10 @@ class RecruitmentsController < ApplicationController
       @recruitments = Recruitment.where(flag: 0).order(id: "DESC")
     elsif params[:mode]=="指定無し"
       @recruitments = Recruitment.where(need_chara: "誰でも", flag: 0).or(Recruitment.where(need_chara: params[:want_chara])).order(id: "DESC")
+    elsif params[:want_chara] == "誰でも"
+      @recruitments = Recruitment.where(mode: params[:mode], flag: 0).order(id: "DESC")
+    elsif
+      @recruitments = Recruitment.where(mode: params[:mode], need_chara: params[:want_chara], flag: 0).order(id: "DESC")
     end
     if @recruitments==nil
       redirect_to recruitments_path, warning: "検索結果にマッチするものがありませんでした"

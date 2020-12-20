@@ -65,3 +65,4 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'pg', group: :production
+gem 'mini_racer'

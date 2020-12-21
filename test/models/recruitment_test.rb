@@ -19,4 +19,13 @@ class RecruitmentTest < ActiveSupport::TestCase
     assert_not recruitment.save
   end
   
+  test "useとneedのキャラが同じとき" do
+    recruitment = Recruitment.new(mode: "ランクマ", rank: "プレデター", use_chara: "レイス", need_chara: "レイス", play_style: "hoge", flag: 1 )
+    assert_not recruitment.save
+  end
+  test "要求ランクが指定文字数以上" do
+    recruitment = Recruitment.new(mode: "ランクマ", rank: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA", use_chara: "レイス", need_chara: "レイス", play_style: "hoge", flag: 1 )
+    assert_not recruitment.save
+  end
+
 end

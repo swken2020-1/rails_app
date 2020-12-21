@@ -32,21 +32,6 @@
             <%= link_to "募集終了","/recruitments/#{recruitment.id}" ,:style=>"color:red;"%>
           <% end %>
       </td>
-      <td>
-      <% if recruitment.user_id == session[:user_id]  %> 
-      <%= link_to '削除', "/recruitments/#{recruitment.id}", method: :delete %>
-      <% else %>
-      <% end %> 
-      </td>
-      <% if recruitment.user_id == session[:user_id] && recruitment.flag ==0  %> 
-           <%= form_with model: recruitment do |f| %>
-               <%= f.label :flag, "募集状況" %>
-               <%= f.check_box :flag %>
-               <%= f.submit "更新"  %>
-           <% end %>
-      <% else %>
-      <% end %>
-      </td>
     </tr>
    
   </tbody>

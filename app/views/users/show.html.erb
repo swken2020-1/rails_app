@@ -3,8 +3,8 @@
 
 <%= "ユーザ名：" + @user.name %>
 <p>今までの募集</p>
-<%= "最も良くプレイするモード #{@most_mode}" %>
-
+<%= "最も良くプレイするモード： #{@most_mode}" %>
+<%= "最も良く使うキャラ： #{@most_chara}" %>
 
 <p><% if @user.id == session[:user_id] %> 
     <%= link_to "ユーザーの削除", "/users/#{session[:user_id]}", method: :delete, data: { confirm: "アカウント情報を削除しますよろしいですか？" }, class: "btn btn-danger" %>
